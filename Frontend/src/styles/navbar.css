@@ -1,0 +1,51 @@
+/* ---------- Navbar ---------- */
+.navbar {
+  height: 68px;
+  background: #fff;
+  border-bottom: 1px solid #e6e9f0;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-brand strong {
+  display: block;
+  font-size: 15px;
+}
+
+.navbar-brand small {
+  display: block;
+  color: #8891a3;
+  font-size: 11px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 6px;
+}
+
+.navbar-links a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  color: #667085;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.navbar-links a.active {
+  background: #eef0ff;
+  color: #3949c6;
+}

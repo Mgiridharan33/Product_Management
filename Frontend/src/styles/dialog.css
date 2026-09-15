@@ -1,0 +1,42 @@
+/* ---------- Dialogs (confirm delete / category modal) ---------- */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 40, 0.5);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 30;
+}
+
+.dialog-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px;
+  width: min(400px, 100%);
+}
+
+.dialog-box-wide {
+  width: min(520px, 100%);
+}
+
+.dialog-box h3 {
+  margin-top: 0;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialog-header h3 {
+  margin: 0;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}

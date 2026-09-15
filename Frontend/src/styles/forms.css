@@ -1,0 +1,103 @@
+/* ---------- Forms (product/category) ---------- */
+.form-panel {
+  background: #fff;
+  border: 1px solid #e4e7ed;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 18px;
+}
+
+.form-panel label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.form-panel label > span {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4f5869;
+  margin-bottom: 6px;
+}
+
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+  width: 100%;
+  border: 1px solid #dce1e8;
+  border-radius: 8px;
+  padding: 10px;
+  outline: 0;
+  background: #fff;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.radio-group {
+  display: flex;
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.radio-option input {
+  width: auto;
+}
+
+.upload-box {
+  border: 1px dashed #c9ced8;
+  padding: 10px;
+  border-radius: 8px;
+  color: #6b7484;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-preview {
+  margin-top: 10px;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 22px;
+  margin: 4px 0 18px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.checkbox-option input {
+  width: auto;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
