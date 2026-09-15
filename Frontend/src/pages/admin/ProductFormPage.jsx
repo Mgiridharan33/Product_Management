@@ -113,12 +113,12 @@ export default function ProductFormPage() {
 
           <label>
             <span>Price (₹) *</span>
-            <input type="number" min="0" step="0.01" value={form.price} onChange={(e) => updateField("price", e.target.value)} />
+            <input type="text" inputMode="decimal" value={form.price} onChange={(e) => updateField("price", e.target.value)} />
           </label>
 
           <label>
             <span>Stock *</span>
-            <input type="number" min="0" value={form.stock} onChange={(e) => updateField("stock", e.target.value)} />
+            <input type="text" inputMode="numeric" value={form.stock} onChange={(e) => updateField("stock", e.target.value)} />
           </label>
 
           <label>

@@ -36,6 +36,20 @@
   background: #fff;
 }
 
+.form-panel input[type="text"]::-webkit-inner-spin-button,
+.form-panel input[type="text"]::-webkit-outer-spin-button,
+.form-panel input[type="number"]::-webkit-inner-spin-button,
+.form-panel input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-panel input[type="text"],
+.form-panel input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
 .full-width {
   grid-column: 1 / -1;
 }
