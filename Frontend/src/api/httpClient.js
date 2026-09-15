@@ -1,16 +1,10 @@
-// Base URL for the backend API. Falls back to localhost for local development.
 export const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
-// The uploads folder is served from the API root (one level up from /api),
-// so a stored value like "/uploads/foo.jpg" needs the "/api" suffix stripped.
 export function resolveImageUrl(imagePath) {
   if (!imagePath) return "";
   return API_BASE_URL.replace(/\/api\/?$/, "") + imagePath;
 }
 
-// Thin wrapper around fetch that understands our API's JSON envelope
-// ({ success, data, message }) and throws a plain Error on failure so
-// callers can just try/catch.
 export async function request(path, options = {}) {
   console.log("path",path);
   

@@ -50,13 +50,13 @@ export default function CategoryFormModal({ category, onClose, onSaved }) {
 
         {formError && <div className="form-error">{formError}</div>}
 
-        <form onSubmit={handleSubmit}>
-          <label>
+        <form className="dialog-form" onSubmit={handleSubmit}>
+          <label className="dialog-field">
             <span>Category Name *</span>
             <input type="text" value={form.name} onChange={(e) => updateField("name", e.target.value)} />
           </label>
 
-          <label>
+          <label className="dialog-field">
             <span>Description</span>
             <textarea rows={4} value={form.description} onChange={(e) => updateField("description", e.target.value)} />
           </label>

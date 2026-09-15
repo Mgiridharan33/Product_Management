@@ -1,1 +1,80 @@
-const API=import.meta.env.VITE_API_URL||'http://localhost:5000/api';async function req(path,opt={}){const r=await fetch(API+path,opt);const d=await r.json().catch(()=>({success:false,message:'Invalid server response'}));if(!r.ok)throw Error(d.message||'Request failed');return d}export const api={categories:{list:()=>req('/categories'),create:d=>req('/categories',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}),update:(id,d)=>req('/categories/'+id,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}),status:(id,s)=>req('/categories/'+id+'/status',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({status:s})}),remove:id=>req('/categories/'+id,{method:'DELETE'})},products:{list:()=>req('/products'),create:d=>req('/products',{method:'POST',body:d}),update:(id,d)=>req('/products/'+id,{method:'PUT',body:d}),status:(id,s)=>req('/products/'+id+'/status',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({status:s})}),remove:id=>req('/products/'+id,{method:'DELETE'})}};export const imageUrl=p=>p?API.replace('/api','')+p:'';
+const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
+async function request(path, options = {}) {
+  const response = await fetch(`${API}${path}`, options);
+  const payload = await response.json().catch(() => ({
+    success: false,
+    message: 'Invalid server response',
+  }));
+
+  if (!response.ok || payload.success === false) {
+    throw new Error(payload.message || 'Request failed');
+  }
+
+  return payload;
+}
+
+function jsonBody(payload) {
+  return {
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  };
+}
+
+export const api = {
+  categories: {
+    list: () => request('/categories'),
+
+    create: (data) =>
+      request('/categories', {
+        method: 'POST',
+        ...jsonBody(data),
+      }),
+
+    update: (id, data) =>
+      request(`/categories/${id}`, {
+        method: 'PUT',
+        ...jsonBody(data),
+      }),
+
+    status: (id, status) =>
+      request(`/categories/${id}`, {
+        method: 'PATCH',
+        ...jsonBody({ status }),
+      }),
+
+    remove: (id) =>
+      request(`/categories/${id}`, {
+        method: 'DELETE',
+      }),
+  },
+
+  products: {
+    list: () => request('/products'),
+
+    create: (formData) =>
+      request('/products', {
+        method: 'POST',
+        body: formData,
+      }),
+
+    update: (id, formData) =>
+      request(`/products/${id}`, {
+        method: 'PUT',
+        body: formData,
+      }),
+
+    status: (id, status) =>
+      request(`/products/${id}`, {
+        method: 'PATCH',
+        ...jsonBody({ status }),
+      }),
+
+    remove: (id) =>
+      request(`/products/${id}`, {
+        method: 'DELETE',
+      }),
+  },
+};
+
+export const imageUrl = (path) => (path ? `${API.replace('/api', '')}${path}` : '');
